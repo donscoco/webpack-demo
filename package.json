@@ -6,7 +6,9 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack-dev-server --open --config webpack.dev.js",
     "server": "node server.js",
-    "build": "webpack --config webpack.prod.js"
+    "dist": "webpack -p --config webpack.prod.js",
+    "build_windows": "set WEBPACK_ENV=dev && webpack --config webpack.prod.js",
+    "build": " webpack --config webpack.prod.js"
   },
   "keywords": [],
   "author": "",

@@ -2,7 +2,7 @@
 * @Author: donscoco
 * @Date:   2019-03-29 16:07:43
 * @Last Modified by:   donscoco
-* @Last Modified time: 2019-04-03 19:53:12
+* @Last Modified time: 2019-04-03 21:06:02
 */
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
@@ -14,7 +14,7 @@ const webpack = require('webpack');
 // var STATIC_URL="/dist";
 
     //正式环境
-var STATIC_URL="//static.donscoco.online/webpack-demo/dist/";
+var STATIC_URL="//static.donscoco.online/mall/dist/";
 
 
 // 获取html-webpack-plugin参数的方法 

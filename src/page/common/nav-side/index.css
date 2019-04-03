@@ -1,0 +1,26 @@
+/*
+* @Author: donscoco
+* @Date:   2019-03-29 21:35:04
+* @Last Modified by:   donscoco
+* @Last Modified time: 2019-03-29 21:35:06
+*/
+.nav-side{
+    float: left;
+    width: 130px;
+    min-height: 100px;
+}
+.nav-side .nav-item{
+    line-height: 25px;
+    font-size: 13px;
+}
+.nav-side .nav-item .link{
+    color: #888;
+}
+.nav-side .nav-item.active .link{
+    color: #c60023;
+}
+/* 右侧内容区 */
+.content.with-nav{
+    float: left;
+    width: 950px;
+}

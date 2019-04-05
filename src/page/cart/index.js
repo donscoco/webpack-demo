@@ -16,11 +16,11 @@ var page={
 
     },
     //初始化，初始化一般要做的就是请求后台信息，为html元素绑定时间
-    init:function(){
+    init : function(){
         this.onLoad();
         this.bindEvent();
     },
-    onLoad:function(){
+    onLoad : function(){
         this.loadCart();
     },
     bindEvent : function(){

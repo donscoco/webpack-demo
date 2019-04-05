@@ -2,7 +2,7 @@
 * @Author: donscoco
 * @Date:   2019-03-29 16:07:43
 * @Last Modified by:   donscoco
-* @Last Modified time: 2019-04-04 12:50:25
+* @Last Modified time: 2019-04-06 01:04:46
 */
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
@@ -105,6 +105,21 @@ module.exports = {
             test: /\.xml$/,
             use: [
                'xml-loader'
+            ]
+        },
+        {
+            test: /\.(eot|woff2?|ttf|svg)$/,
+            use: [
+                {
+                    loader: "url-loader",
+                    options: {
+                        name: "[name]-[hash:5].min.[ext]",
+                        limit: 5000, // fonts file size <= 5KB, use 'base64'; else, output svg file
+                        publicPath: "font/",
+                        outputPath: "font/"
+                    }
+                    
+                }
             ]
         }
     ]

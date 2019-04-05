@@ -2,7 +2,7 @@
 * @Author: Rosen
 * @Date:   2017-05-15 15:26:38
 * @Last Modified by:   donscoco
-* @Last Modified time: 2019-04-03 14:32:07
+* @Last Modified time: 2019-04-06 00:46:11
 */
 
 'use strict';
@@ -14,7 +14,6 @@ var _mm = {
     // 网络请求
     request : function(param){
         var _this = this;
-        console.log(param.headers);
         $.ajax({
             // withCredentials: true,
             // headers:{

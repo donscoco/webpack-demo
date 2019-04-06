@@ -2,7 +2,7 @@
 * @Author: donscoco
 * @Date:   2019-04-04 14:46:33
 * @Last Modified by:   donscoco
-* @Last Modified time: 2019-04-06 00:58:42
+* @Last Modified time: 2019-04-06 16:30:42
 */
 'use strict';
 
@@ -36,10 +36,22 @@ var _order = {
     getOrderDetail:function(orderNo,resolve,reject){
         _mm.request({
             url     : _mm.getServerUrl('/order/detail.do'),
-            data    : shippingId,
+            data    : {
+                orderNo:orderNo
+            },
             success : resolve,
             error   : reject
         });
     },
+    cancelOrder:function(orderNo,resolve,reject){
+        _mm.request({
+            url     : _mm.getServerUrl('/order/cancel.do'),
+            data    : {
+                orderNo:orderNo
+            },
+            success : resolve,
+            error   : reject
+        });
+    }
 }
 module.exports = _order;

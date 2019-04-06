@@ -2,7 +2,7 @@
 * @Author: donscoco
 * @Date:   2019-04-03 00:54:32
 * @Last Modified by:   donscoco
-* @Last Modified time: 2019-04-06 16:31:55
+* @Last Modified time: 2019-04-06 18:30:05
 */
 'use strict';  
 require('./index.css');
@@ -49,6 +49,7 @@ var page = {
         var orderDetailHtml = '';
         var $orderDetailCon = $('.content');
         this.data.orderNo = _mm.getUrlParam('orderNo');
+        $orderDetailCon.html('<div class="loading"></div>');
         _order.getOrderDetail(_this.data.orderNo,function(res){
             _this.dataFilter(res);
             var orderDetailHtml = _mm.renderHtml(templateIndex,res);

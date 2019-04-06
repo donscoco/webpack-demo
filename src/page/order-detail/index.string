@@ -59,7 +59,7 @@
                 </tbody>
             </table>
             <p class="total pull-right"> <span>订单总价：</span>  
-            <span class="total-price">￥{{payment}}</span> 
+            <span class="enhance">￥{{payment}}</span> 
             </p>
         </div>
     </div>

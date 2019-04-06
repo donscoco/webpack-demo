@@ -2,5 +2,31 @@
 * @Author: donscoco
 * @Date:   2019-04-03 00:57:06
 * @Last Modified by:   donscoco
-* @Last Modified time: 2019-04-03 00:57:06
+* @Last Modified time: 2019-04-06 18:23:26
 */
+.page-wrap {
+    padding:10px 0 25px;
+    background:#fff
+}
+.page-wrap .pay-tips {
+    padding:10px;
+    font-size:18px;
+    font-weight:700;
+    color:#666;
+    text-align:center
+}
+.page-wrap .pay-tips.enhance {
+    color:#c60023
+}
+.page-wrap .img-con {
+    margin:0 auto;
+    width:300px;
+    height:300px;
+    overflow:hidden;
+    background:#fff;
+    border:1px solid #ddd
+}
+.page-wrap .img-con .qr-code {
+    width:100%;
+    height:100%
+}

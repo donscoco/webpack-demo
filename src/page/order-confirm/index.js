@@ -2,7 +2,7 @@
 * @Author: donscoco
 * @Date:   2019-04-03 00:54:17
 * @Last Modified by:   donscoco
-* @Last Modified time: 2019-04-05 20:40:40
+* @Last Modified time: 2019-04-06 17:56:32
 */
 'use strict';
 require('./index.css');
@@ -46,7 +46,7 @@ var page = {
                 _order.createOrder({
                     shippingId:shippingId
                 },function(res){
-                    window.location.href = './payment.html?orderNumber='+res.orderNo;
+                    window.location.href = './payment.html?orderNo='+res.orderNo;
                 },function(errMsg){
                     _mm.errorTips(errMsg)
                 })

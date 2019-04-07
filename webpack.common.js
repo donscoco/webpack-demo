@@ -2,7 +2,7 @@
 * @Author: donscoco
 * @Date:   2019-03-29 16:07:43
 * @Last Modified by:   donscoco
-* @Last Modified time: 2019-04-06 19:54:45
+* @Last Modified time: 2019-04-08 01:27:24
 */
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
@@ -11,7 +11,7 @@ const webpack = require('webpack');
 
 
     //测试环境
-// var STATIC_URL="/dist";
+// var STATIC_URL="/dist/";
 
     //正式环境
 var STATIC_URL="//static.donscoco.online/mall/dist/";
@@ -23,6 +23,7 @@ var getHtmlConfig = function(name, title){
     return {
         template    : './src/view/' + name + '.html',
         filename    : 'view/' + name + '.html',
+        favicon     : './favicon.ico',
         title       : title,
         inject      : true,
         hash        : true,

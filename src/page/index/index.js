@@ -2,7 +2,7 @@
 * @Author: donscoco
 * @Date:   2019-03-29 19:31:00
 * @Last Modified by:   donscoco
-* @Last Modified time: 2019-04-01 00:18:11
+* @Last Modified time: 2019-04-07 11:34:13
 */
 console.log("im index js");
 require('./index.css');
@@ -33,19 +33,3 @@ var  navSide   = require('../common/nav-side/index.js');
 // console.log(_mm.renderHtml(html, data));
 
 
-// $(function() {
-//     // 渲染banner的html
-//     var bannerHtml  = _mm.renderHtml(templateBanner);
-//     $('.banner-con').html(bannerHtml);
-//     // 初始化banner
-//     var $slider     = $('.banner').unslider({
-//         arrows: true,
-//         fluid: true,
-//         dots: true
-//     });
-//     // 前一张和后一张操作的事件绑定
-    // $('.banner-con .banner-arrow').click(function(){
-    //     var forward = $(this).hasClass('prev') ? 'prev' : 'next';
-    //     $slider.data('unslider')[forward]();
-    // });
-// });

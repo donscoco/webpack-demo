@@ -2,7 +2,7 @@
 * @Author: donscoco
 * @Date:   2019-03-29 16:07:43
 * @Last Modified by:   donscoco
-* @Last Modified time: 2019-04-08 01:27:24
+* @Last Modified time: 2019-04-13 21:06:20
 */
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
@@ -11,10 +11,10 @@ const webpack = require('webpack');
 
 
     //测试环境
-// var STATIC_URL="/dist/";
+var STATIC_URL="//static.donscoco.online/webpack-demo/dist/";
 
     //正式环境
-var STATIC_URL="//static.donscoco.online/mall/dist/";
+// var STATIC_URL="//static.donscoco.online/mall/dist/";
 
 
 // 获取html-webpack-plugin参数的方法 
@@ -40,6 +40,7 @@ module.exports = {
     'detail'            : ['./src/page/detail/index.js'],
     'cart'              : ['./src/page/cart/index.js'],
     'user-login'        : ['./src/page/user-login/index.js'],
+    'user-login-email'  : ['./src/page/user-login-email/index.js'],
     'user-register'     : ['./src/page/user-register/index.js'],
     'user-pass-reset'   : ['./src/page/user-pass-reset/index.js'],
     'user-center'       : ['./src/page/user-center/index.js'],
@@ -49,7 +50,9 @@ module.exports = {
     'order-detail'      : ['./src/page/order-detail/index.js'],
     'order-list'        : ['./src/page/order-list/index.js'],
     'payment'           : ['./src/page/payment/index.js'],
-    'result'            : ['./src/page/result/index.js']
+    'result'            : ['./src/page/result/index.js'],
+    'login-callback'        : ['./src/page/login-callback/index.js'],
+    'about'             : ['./src/page/about/index.js']
   },
   //输出形式，这个决定了打包后，html对js等静态文件的引用方式
   output: {
@@ -167,6 +170,7 @@ module.exports = {
     new HtmlWebpackPlugin(getHtmlConfig('detail', '商品详情页')),
     new HtmlWebpackPlugin(getHtmlConfig('cart', '购物车')),
     new HtmlWebpackPlugin(getHtmlConfig('user-login', '用户登录')),
+    new HtmlWebpackPlugin(getHtmlConfig('user-login-email', '邮箱登陆')),
     new HtmlWebpackPlugin(getHtmlConfig('user-register', '用户注册')),
     new HtmlWebpackPlugin(getHtmlConfig('user-pass-reset', '找回密码')),
     new HtmlWebpackPlugin(getHtmlConfig('user-center', '个人中心')),
@@ -176,6 +180,8 @@ module.exports = {
     new HtmlWebpackPlugin(getHtmlConfig('order-detail', '订单详情')),
     new HtmlWebpackPlugin(getHtmlConfig('order-list', '订单列表')),
     new HtmlWebpackPlugin(getHtmlConfig('payment', '订单支付')),
-    new HtmlWebpackPlugin(getHtmlConfig('result', '操作结果'))
+    new HtmlWebpackPlugin(getHtmlConfig('result', '操作结果')),
+    new HtmlWebpackPlugin(getHtmlConfig('login-callback', '登陆回调')),
+    new HtmlWebpackPlugin(getHtmlConfig('about', '关于我们'))
   ]
 };

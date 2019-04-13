@@ -2,7 +2,7 @@
 * @Author: donscoco
 * @Date:   2019-03-29 16:08:51
 * @Last Modified by:   donscoco
-* @Last Modified time: 2019-04-03 21:39:16
+* @Last Modified time: 2019-04-13 17:59:23
 */
 const merge = require('webpack-merge');
 const common = require('./webpack.common.js');
@@ -34,16 +34,16 @@ module.exports = merge(common, {
         contentBase: './dist/view',
         hot:true,
         //代理转发
-        proxy: {
-            '**/*.do': {
-                target: 'http://donscoco.online',
-                changeOrigin: true,
-                host: "donscoco.online",
-                //https
-                secure: false
-            }
-        },
-        port:8080
+        // proxy: {
+        //     '**/*.do': {
+        //         target: 'http://donscoco.online',
+        //         changeOrigin: true,
+        //         host: "donscoco.online",
+        //         //https
+        //         secure: false
+        //     }
+        // },
+        port:9080
 
     }
 });

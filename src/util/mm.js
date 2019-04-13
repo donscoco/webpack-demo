@@ -2,13 +2,14 @@
 * @Author: Rosen
 * @Date:   2017-05-15 15:26:38
 * @Last Modified by:   donscoco
-* @Last Modified time: 2019-04-06 00:46:11
+* @Last Modified time: 2019-04-11 15:19:58
 */
 
 'use strict';
 var Hogan = require('hogan.js');
 var conf = {
     serverHost : ''
+    // serverHost : 'http://api.donscoco.online/'
 };
 var _mm = {
     // 网络请求
@@ -22,6 +23,10 @@ var _mm = {
             type        : param.method  || 'get',
             url         : param.url     || '',
             dataType    : param.type    || 'json',
+            crossDomain: true,
+            xhrFields: {
+                    withCredentials: true
+            },
             data        : param.data    || '',
             success     : function(res){
                 // 请求成功

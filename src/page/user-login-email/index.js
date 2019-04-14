@@ -2,7 +2,7 @@
 * @Author: donscoco
 * @Date:   2019-04-13 20:06:21
 * @Last Modified by:   donscoco
-* @Last Modified time: 2019-04-13 22:11:34
+* @Last Modified time: 2019-04-14 15:29:51
 */
 console.log("im login js");
 
@@ -52,6 +52,8 @@ var page = {
         // 验证成功
         if(validateResult.status){
             _user.emailLogin(formData, function(res){
+
+                formError.show("邮件已发送，请确认邮箱");
                 _this.queryStatus();
             }, function(errMsg){
                 formError.show(errMsg);

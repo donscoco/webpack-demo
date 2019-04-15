@@ -10,6 +10,7 @@
             <i class="fa fa-close close">关闭</i>
         </div>
         <div class="model-body">
+            <div id="allmap1" style="height:200px;width:100%;background:red"></div>  
             <div class="form">
                 <div class="form-line">
                     <label class="label" for="receiver-name">收件人姓名：</label>

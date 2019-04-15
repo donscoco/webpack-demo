@@ -2,7 +2,7 @@
 * @Author: donscoco
 * @Date:   2019-03-29 16:07:43
 * @Last Modified by:   donscoco
-* @Last Modified time: 2019-04-14 21:57:38
+* @Last Modified time: 2019-04-15 14:56:24
 */
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
@@ -11,10 +11,10 @@ const webpack = require('webpack');
 
 
     //测试环境
-// var STATIC_URL="//static.donscoco.online/webpack-demo/dist/";
+var STATIC_URL="//static.donscoco.online/webpack-demo/dist/";
 
     //正式环境
-var STATIC_URL="//static.donscoco.online/mall/dist/";
+// var STATIC_URL="//static.donscoco.online/mall/dist/";
 
 
 // 获取html-webpack-plugin参数的方法 
@@ -55,6 +55,7 @@ module.exports = {
     'payment'           : ['./src/page/payment/index.js'],
     'result'            : ['./src/page/result/index.js'],
     'login-callback'        : ['./src/page/login-callback/index.js'],
+    'test'              : ['./src/page/test/index.js'],
     'about'             : ['./src/page/about/index.js']
   },
   //输出形式，这个决定了打包后，html对js等静态文件的引用方式
@@ -67,8 +68,10 @@ module.exports = {
       publicPath: STATIC_URL
     },
   externals : {
+        //前端html中引用了对应的script，这里引用下可以在自己的page中js使用
         '$'      : 'window.jQuery',
-        'jquery' : 'window.jQuery'
+        'jquery' : 'window.jQuery',
+        'BMap'   : 'BMap'
   },
   //各种加载器 css style file
   module: {
@@ -188,6 +191,7 @@ module.exports = {
     new HtmlWebpackPlugin(getHtmlConfig('payment', '订单支付')),
     new HtmlWebpackPlugin(getHtmlConfig('result', '操作结果')),
     new HtmlWebpackPlugin(getHtmlConfig('login-callback', '登陆回调')),
+    new HtmlWebpackPlugin(getHtmlConfig('test', '测试页面')),
     new HtmlWebpackPlugin(getHtmlConfig('about', '关于我们'))
   ]
 };

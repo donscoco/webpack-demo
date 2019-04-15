@@ -1,0 +1,24 @@
+<!DOCTYPE html>  
+<html>
+<head>  
+<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />  
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />  
+<title>Hello, World</title>  
+<style type="text/css">  
+html{height:100%}  
+body{height:100%;margin:0px;padding:0px}  
+#allmap1{height:50%}  
+</style>  
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=84GKU4YDX4hZQMPva58QZSo1hlGvbG5p">
+//v2.0版本的引用方式：src="http://api.map.baidu.com/api?v=2.0&ak=您的密钥"
+</script>
+</head>  
+ 
+<body>  
+<div id="allmap1"></div> 
+<script type="text/javascript"> 
+
+</script>  
+<%= require('html-loader!./layout/baidu-map.html')  %>
+</body>  
+</html>

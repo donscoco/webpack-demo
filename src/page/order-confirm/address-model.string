@@ -17,6 +17,14 @@
                     <input class="form-item" id="receiver-name" value='{{data.receiverName}}' placeholder="请输入收件人姓名">
                 </div>
                 <div class="form-line">
+                    <label class="label" for="receiver-phone">收件人手机：</label>
+                    <input class="form-item" id="receiver-phone" value='{{data.receiverPhone}}' placeholder="请输入11位手机号">
+                </div>
+                <div class="form-line">
+                    <label class="label" for="receiver-zip">收件人邮政编码：</label>
+                    <input class="form-item" id="receiver-zip" value='{{data.receiverZip}}' placeholder="如：100000">
+                </div>
+                <div class="form-line">
                     <label class="label" for="">所在城市：</label>
                     <select class="form-item" id="receiver-province"></select>
                     <select class="form-item" id="receiver-city"></select>
@@ -26,18 +34,10 @@
                     <label class="label" for="receiver-address">详细地址：</label>
                     <input class="form-item" id="receiver-address" value='{{data.receiverAddress}}' placeholder="请精确到门牌号">
                 </div>
-                <div class="form-line">
-                    <label class="label" for="receiver-phone">收件人手机：</label>
-                    <input class="form-item" id="receiver-phone" value='{{data.receiverPhone}}' placeholder="请输入11位手机号">
-                </div>
-                <div class="form-line">
-                    <label class="label" for="receiver-zip">收件人邮政编码：</label>
-                    <input class="form-item" id="receiver-zip" value='{{data.receiverZip}}' placeholder="如：100000">
-                </div>
+                <div id="searchResultPanel" style="border:1px solid #C0C0C0;width:150px;height:auto; display:none;"></div>
                 <div class="form-line"> 
-                <input type="hidden" id="receiver-id" value="{{data.id}}"/>
-                <a class="btn address-btn form-btn" href="#">保存收货地址</a>
-
+                    <input type="hidden" id="receiver-id" value="{{data.id}}"/>
+                    <a class="btn address-btn form-btn" href="#">保存收货地址</a>
                 </div>
             </div>
         </div>

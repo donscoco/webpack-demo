@@ -2,7 +2,7 @@
 * @Author: donscoco
 * @Date:   2019-04-05 02:36:20
 * @Last Modified by:   donscoco
-* @Last Modified time: 2019-04-15 17:08:00
+* @Last Modified time: 2019-04-15 19:20:38
 */
 'use strict';
 var _mm                   = require('util/mm.js');
@@ -17,6 +17,9 @@ var templateAddressModel  = require('./address-model.string');
 
 var addressModel = {
     option:{
+
+    },
+    map:{
 
     },
     show:function(option){
@@ -53,6 +56,13 @@ var addressModel = {
         this.$modelWrap.find('#receiver-province').change(function(){
             var selectedProvince = $(this).val();
             _this.loadCities(selectedProvince);
+        });
+        //城市一改变就触发百度地图查找对应位置
+        this.$modelWrap.find('#receiver-city').change(function(){
+            var selectedProvince = $(this).val();
+            var selectedCity = $(this).val();
+            var keyWord = selectedProvince+selectedCity;
+            _this.baiduMapSearch(keyWord);
         });
         //提交收货地址
         this.$modelWrap.find('.form-btn').click(function(){
@@ -150,38 +160,52 @@ var addressModel = {
         return result;
     },
     loadBaiduMap:function(){
+        console.log($.isEmptyObject(this.map));
         //初始化地图逻辑
         // 创建地图实例  
-        var map = new BMap.Map("allmap1");
+        this.map = new BMap.Map("allmap1");
         // 创建点坐标 
         var point = new BMap.Point(116.404, 39.915); 
         // 初始化地图，设置中心点坐标和地图级别  
-        map.centerAndZoom(point, 15);
+        this.map.centerAndZoom(point, 15);
 
-        map.enableScrollWheelZoom(true);     //开启鼠标滚轮缩放
+        this.map.enableScrollWheelZoom(true);     //开启鼠标滚轮缩放
 
-        map.addControl(new BMap.NavigationControl());               // 添加平移缩放控件
+        this.map.addControl(new BMap.NavigationControl());               // 添加平移缩放控件
 
-        map.addControl(new BMap.ScaleControl());                    // 添加比例尺控件
+        this.map.addControl(new BMap.ScaleControl());                    // 添加比例尺控件
 
-        map.addControl(new BMap.OverviewMapControl());              //添加缩略地图控件
+        this.map.addControl(new BMap.OverviewMapControl());              //添加缩略地图控件
 
-        map.enableScrollWheelZoom();                            //启用滚轮放大缩小
+        this.map.enableScrollWheelZoom();                            //启用滚轮放大缩小
 
         //如果非是更新就自动获取当前地址
         if(!this.option.isUpdate){
-            this.baiduMapLocation(map);
+            this.baiduMapLocation();
+        }else{
+            var keyWord = $('#receiver-province').val()+$('#receiver-city').val();
+            this.baiduMapSearch(keyWord);
         }
-        this.bindBaiduMapEvent(map);
+        this.bindBaiduMapEvent();
     },
-    baiduMapLocation:function(map){
+    //关键字检索
+    baiduMapSearch:function(keyWord){
+        var map = this.map;
+        var local = new BMap.LocalSearch(map, {
+            renderOptions:{map: map}
+        });
+        local.search(keyWord);
+    },
+    //定位当前位置
+    baiduMapLocation:function(){
         var _this = this;
+        var _map = this.map;
         var geolocation = new BMap.Geolocation();
             geolocation.getCurrentPosition(function(r){
                 if(this.getStatus() == BMAP_STATUS_SUCCESS){
                     var mk = new BMap.Marker(r.point);
-                    map.addOverlay(mk);
-                    map.panTo(r.point);
+                    _map.addOverlay(mk);
+                    _map.panTo(r.point);
                     //
                     console.log(r);
                     var addComp = r.address;
@@ -206,11 +230,12 @@ var addressModel = {
                 }        
             },{enableHighAccuracy: true})
     },
-    bindBaiduMapEvent:function(map){
+    bindBaiduMapEvent:function(){
         var _this = this;
+        var _map = this.map;
         //鼠标点击地图获取地址
         var geoc = new BMap.Geocoder();    
-            map.addEventListener("click", function(e){        
+            _map.addEventListener("click", function(e){        
                 var pt = e.point;
                 geoc.getLocation(pt, function(rs){
                 var addComp = rs.addressComponents;
@@ -218,12 +243,12 @@ var addressModel = {
                 // alert(_this.option.isUpdate);
                 console.log(rs);
                 //清除原来的覆盖物，添加覆盖物
-                map.clearOverlays(); 
+                _map.clearOverlays(); 
                 var mk = new BMap.Marker(pt);
                 //添加心的覆盖物
-                map.addOverlay(mk);
+                _map.addOverlay(mk);
                 //镜头移向这个位置
-                map.panTo(pt);
+                _map.panTo(pt);
                 //回填二级联动
                 $('#receiver-province').val(_this.adaptProvinces(addComp.province));
                 _this.loadCities(_this.adaptProvinces(addComp.province));
@@ -232,6 +257,7 @@ var addressModel = {
                 $('#receiver-address').val(rs.address);
                 });        
             });
+
     },
     //因为项目中使用的二级联动数据没有  省  市   的字，而百度地图中会返回如广东省，广州市，所以使用
     //这样的一个 ‘适配器’ 来匹配百度地图返回的数据

@@ -2,7 +2,7 @@
 * @Author: donscoco
 * @Date:   2019-04-03 00:56:49
 * @Last Modified by:   donscoco
-* @Last Modified time: 2019-04-05 02:32:14
+* @Last Modified time: 2019-04-15 17:52:26
 */
 /*start*/
 /*address*/
@@ -158,11 +158,11 @@
     padding:15px
 }
 
-.form .form-line {
+.form-line {
     overflow:hidden;
     margin:5px 0
 }
-.form .form-line .label {
+.form-line .label {
     cursor:pointer;
     width:80px;
     display:block;
@@ -172,20 +172,20 @@
     height:30px;
     line-height:30px
 }
-.form .form-line .form-item {
+.form-line .form-item {
     padding:0 5px;
     height:30px;
     line-height:30px;
     outline:none;
     margin-right:10px
 }
-.form .form-btn {
+.form-btn {
     margin-left:90px;
     height:30px;
     line-height:30px;
     font-size:13px
 }
-.form .form-require {
+.form-require {
     color:red
 }
 

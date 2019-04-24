@@ -2,7 +2,7 @@
 * @Author: Rosen
 * @Date:   2017-05-17 17:04:32
 * @Last Modified by:   donscoco
-* @Last Modified time: 2019-03-31 20:37:32
+* @Last Modified time: 2019-04-14 14:52:41
 */
 
 'use strict';
@@ -19,6 +19,39 @@ var _user = {
             success : resolve,
             error   : reject
         });
+    },
+    // 邮箱登陆
+    emailLogin : function(data,resolve, reject){
+        _mm.request({
+            url     : _mm.getServerUrl('/user/mailLogin.do'),
+            data    : data,
+            method  : 'POST',
+            success : resolve,
+            error   : reject
+        });
+        
+    },
+    // 忘记密码-发送邮件验证
+    getEmailToken : function(data,resolve, reject){
+        _mm.request({
+            url     : _mm.getServerUrl('/user/forget_send_email.do'),
+            data    : data,
+            method  : 'POST',
+            success : resolve,
+            error   : reject
+        });
+        
+    },
+    // 忘记密码-发送token验证
+    checkEmailToken : function(data,resolve, reject){
+        _mm.request({
+            url     : _mm.getServerUrl('/user/forget_reset_password_email.do'),
+            data    : data,
+            method  : 'POST',
+            success : resolve,
+            error   : reject
+        });
+        
     },
     // 检查用户名
     checkUsername : function(username, resolve, reject){

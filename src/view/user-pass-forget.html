@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <%= require('html-loader!./layout/head-common.html')  %>
+        <title><%= htmlWebpackPlugin.options.title%></title>
+    </head>
+    <body>
+        <%= require('html-loader!./layout/nav-simple.html')  %>
+        <div class="page-wrap">
+            <div class="w">
+                <div class="user-con">
+                    <div class="user-title">找回密码</div>
+                    <div class="user-box">
+
+                        <div class="step-con step-question">
+                            <p class="user-item-text">请选择找回方式：</p>
+                            <a class="btn btn-submit" id="question-way">问题找回</a>
+                            <a class="btn btn-submit" id="email-way">邮箱找回</a>
+                        </div>
+                            
+                        <div class="link-item">
+                            <a class="link" href="./user-login.html" target="_blank">返回登录>></a>
+                        </div>
+                    </div>  
+                </div>                
+            </div>
+        </div>
+        <%= require('html-loader!./layout/footer.html')  %>
+    </body>
+</html>

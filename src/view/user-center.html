@@ -10,7 +10,7 @@
         <div class="crumb">
             <div class="w">
                 <div class="crumb-con">
-                    <a class="link" href="./index.html">MMall</a>
+                    <a class="link" href="./index.html">首页</a>
                     <span>></span>
                     <span class="link-text"><%= htmlWebpackPlugin.options.title%></span>
                 </div>
@@ -20,7 +20,7 @@
             <%= require('html-loader!./layout/nav-side.html')  %>
             <div class="content with-nav">
                 <div class="panel">
-                    <div class="panel-title">个人中心</div>
+                    <div class="panel-title"><%= htmlWebpackPlugin.options.title%></div>
                     <div class="panel-body">
                         <div class="loading"></div>
                     </div>

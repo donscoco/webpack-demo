@@ -1,0 +1,4 @@
+<p class="result-tip">
+    <span>登陆成功，欢迎您，{{username}}</span>
+    <a href="./index.html">立即去购物</a>
+</p>

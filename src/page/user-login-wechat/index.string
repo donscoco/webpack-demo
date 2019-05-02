@@ -1,0 +1,7 @@
+
+
+<p class="pay-tips">请使用微信APP扫描如下二维码进行登陆：</p>
+<div class="img-con">
+    <img class="qr-code" src="{{qrUrl}}">
+</div>
+

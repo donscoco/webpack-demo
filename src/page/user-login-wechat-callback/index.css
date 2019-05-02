@@ -1,0 +1,25 @@
+/*
+* @Author: donscoco
+* @Date:   2019-05-02 10:54:36
+* @Last Modified by:   donscoco
+* @Last Modified time: 2019-05-02 16:01:07
+*/
+/* 错误信息 */
+.err-tip{
+    height: 60px;
+    line-height: 60px;
+    color: #f60;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    background: #eee;
+}
+.result-tip{
+    height: 60px;
+    line-height: 60px;
+    color: #f60;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    background: #eee;
+}

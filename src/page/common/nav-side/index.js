@@ -2,7 +2,7 @@
 * @Author: donscoco
 * @Date:   2019-03-29 21:35:29
 * @Last Modified by:   donscoco
-* @Last Modified time: 2019-03-30 15:44:21
+* @Last Modified time: 2019-05-28 17:48:24
 */
 console.log("im nav-side");
 require('./index.css');
@@ -16,7 +16,7 @@ var navSide = {
             {name : 'user-center', desc : '个人中心', href: './user-center.html'},
             {name : 'order-list', desc : '我的订单', href: './order-list.html'},
             {name : 'user-pass-update', desc : '修改密码', href: './user-pass-update.html'},
-            {name : 'about', desc : '关于MMall', href: './about.html'}
+            {name : 'about', desc : '关于商家', href: './about.html'}
         ]
     },
     init : function(option){

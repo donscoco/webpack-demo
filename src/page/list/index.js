@@ -1,9 +1,3 @@
-/*
-* @Author: mmall
-* @Date:   2017-05-27 17:57:49
-* @Last Modified by:   donscoco
-* @Last Modified time: 2019-04-01 10:36:36
-*/
 
 'use strict';
 require('./index.css');
